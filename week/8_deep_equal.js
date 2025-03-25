@@ -39,6 +39,7 @@ export default function deepEqual(valueA, valueB) {
     }
   }
 
+  // all check passed
   return true;
 }
 
