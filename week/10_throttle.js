@@ -22,4 +22,16 @@ export default function throttle(func, wait) {
 const sayHello = () => {
   console.log("Hello");
 };
-const throttled = throttle(func, wait);
+
+// Wrap the function with throttle
+const throttledSayHello = throttle(sayHello, 1000); // Allow only once per second
+
+// Simulate calling the function rapidly (every 200ms)
+let count = 0;
+const interval = setInterval(() => {
+  throttledSayHello(`Hello number ${++count}`);
+
+  if (count === 10) {
+    clearInterval(interval); // Stop after 10 calls
+  }
+}, 200);
