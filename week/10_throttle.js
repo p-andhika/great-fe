@@ -19,9 +19,10 @@ export default function throttle(func, wait) {
   };
 }
 
-const sayHello = () => {
-  console.log("Hello");
-};
+// A function to be throttled
+function sayHello(msg) {
+  console.log(`${new Date().toISOString()}: ${msg}`);
+}
 
 // Wrap the function with throttle
 const throttledSayHello = throttle(sayHello, 1000); // Allow only once per second
